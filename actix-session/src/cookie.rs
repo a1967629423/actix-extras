@@ -346,7 +346,7 @@ where
         let (is_new, state) = self.inner.load(&req);
         let prolong_expiration = self.inner.expires_in.is_some();
         Session::set_session(&mut req, state);
-
+        println!("debug session init");
         let fut = self.service.call(req);
 
         async move {
